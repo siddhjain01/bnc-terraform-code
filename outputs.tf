@@ -10,3 +10,10 @@ output "globalaccelerator_ips" {
     aws_globalaccelerator_accelerator.main.*.ip_sets.0.ip_addresses,
   )
 }
+#GA DNS name
+output "globalaccelerator_ips" {
+  description = "DNS of global accelerator"
+  value = flatten(
+    aws_globalaccelerator_accelerator.main.dns_name
+  )
+}
